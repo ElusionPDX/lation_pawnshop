@@ -107,14 +107,22 @@ end, {inventoryFilter = inventories})
 -- Clear stashes on resource stop
 AddEventHandler('onResourceStop', function(resourceName)
     if (GetCurrentResourceName() ~= resourceName) then return end
-    for shopId, _ in pairs(Config.Shops) do
-        exports.ox_inventory:ClearInventory(shopId)
+	for shopId, data in pairs(Config.Shops) do
+		if data.empty then
+			shopinfo = "Pawn Shop %s was reset on script restart"
+			exports.ox_inventory:ClearInventory(shopId)
+			print(string.format(shopinfo, data.name))
+		end
     end
 end)
 
 -- Event handler to clear stashes on server shutdown/restart
 AddEventHandler('txAdmin:events:serverShuttingDown', function()
-    for shopId, _ in pairs(Config.Shops) do
-        exports.ox_inventory:ClearInventory(shopId)
+		for shopId, data in pairs(Config.Shops) do
+		if data.empty then
+			exports.ox_inventory:ClearInventory(shopId)
+			shopinfo = "Pawn Shop %s was reset on server restart"
+			print(string.format(shopinfo, data.name))
+		end
     end
 end)
