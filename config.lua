@@ -75,7 +75,7 @@ Config.Shops = {
         weight = 3000000,
         coords = vec4(-779.9180, -608.8832, 30.2791, 347.4820),
         radius = 1.0,
-        spawnPed = true,
+        spawnPed = false,
         pedModel = 's_m_y_barman_01',
         hour = { min = 6, max = 21 },
         account = 'cash',
