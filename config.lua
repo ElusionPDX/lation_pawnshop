@@ -3,7 +3,7 @@ Config = {} -- Do not alter
 -- 🔎 Looking for more high quality scripts?
 -- 🛒 Shop Now: https://lationscripts.com/github
 -- 💬 Join Discord: https://discord.gg/9EbY4nM5uu
-Config.YouFoundTheBestScripts = true
+Config.YouFoundTheBestScripts = false
 
 -- Use only if needed, directed by support or know what you're doing
 -- Notice: enabling debug features will significantly increase resmon
@@ -17,7 +17,7 @@ Config.VersionCheck = false
 -- Target system, available options are: 'ox_target', 'qb-target', 'qtarget', 'custom' & 'none'
 -- 'custom' needs to be added to client/functions.lua
 -- If 'none' then TextUI is used instead of targeting
-Config.Target = 'none'
+Config.Target = 'ox_target'
 
 -- Notification system, available options are: 'ox_lib', 'esx', 'qb', 'okok' & 'custom'
 -- 'custom' needs to be added to client/functions.lua
@@ -48,10 +48,10 @@ Config.Shops = {
             -- Any item not in this list, cannot be sold here
             -- ['itemSpawnName'] = { label = 'Item Name', price = sellPrice }
             ['water'] = { label = 'Water', price = 50 },
-            ['panties'] = { label = 'Knickers', price = 10 },
+            --['panties'] = { label = 'Knickers', price = 10 },
             ['lockpick'] = { label = 'Lockpick', price = 25 },
             ['phone'] = { label = 'Phone', price = 150 },
-            ['armour'] = { label = 'Bulletproof Vest', price = 225 },
+            --['armour'] = { label = 'Bulletproof Vest', price = 225 },
             -- Add & remove items here as desired
             -- Be sure to follow the same format as above
         },
@@ -60,6 +60,7 @@ Config.Shops = {
         -- Display items that are possible to sell here. If false, it will be
         -- An empty inventory, and the "slots" amount above will not be overridden
         placeholders = true,
+		empty = true, --should it empty on server restarts or script restarts
         blip = {
             enabled = true, -- Enable or disable the blip for this shop
             sprite = 59, -- Sprite ID (https://docs.fivem.net/docs/game-references/blips/)
@@ -69,19 +70,21 @@ Config.Shops = {
         }
     },
     ['strawberry'] = {
-        name = 'Strawberry Ave Pawn Shop',
+        name = 'Ginger Street Pawn',
         slots = 25,
-        weight = 100000,
-        coords = vec4(182.7942, -1319.3451, 29.3173, 244.3924),
+        weight = 3000000,
+        coords = vec4(-779.9180, -608.8832, 30.2791, 347.4820),
         radius = 1.0,
         spawnPed = true,
-        pedModel = 'a_m_y_beach_02',
+        pedModel = 's_m_y_barman_01',
         hour = { min = 6, max = 21 },
         account = 'cash',
         allowlist = {
-            ['burger'] = { label = 'Burger', price = 25 },
+            ['diamond'] = { label = 'Diamond', price = 250 },
+			['goldbar'] = { label = 'Gold Bar', price = 315 },
         },
         placeholders = false,
+		empty = true, --should it empty on server restarts or script restarts
         blip = {
             enabled = true,
             sprite = 59,
